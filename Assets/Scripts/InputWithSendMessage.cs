@@ -26,7 +26,6 @@ public class InputWithSendMessage : MonoBehaviour
         맞는 메서드에 보내는 과정에서 비용이 상당히 많이 소모된다.
     */
 
-
     // 정리
     // 공통적으로 InputActionAssets을 이용하는 PlayerInput으로 작동시킨다.
     // 단, 차이점은

@@ -37,6 +37,7 @@ public class InputWithUnityEvent : MonoBehaviour
 
     // 방식별 성능 비용 비교
     // BroadCast Message < Send Message < Invoke Unity Event <= Invoke C# Event
+    // 성능 측면에서 Invoke Unity Event, Invoke C# Event 두 방식을 추천해주심
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -47,6 +48,7 @@ public class InputWithUnityEvent : MonoBehaviour
         else if(context.phase == InputActionPhase.Performed)
         {
             Debug.Log(context.ReadValue<Vector2>());
+
         }
         else if(context.phase == InputActionPhase.Canceled)
         {
