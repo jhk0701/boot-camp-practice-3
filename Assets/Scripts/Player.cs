@@ -13,8 +13,13 @@ public class Player : MonoBehaviour
 
         이번 강의 프로젝트에서는 Player만 캐싱하고 있으므로
         CharacterManager을 거치는 과정이 번거롭다면 CharacterManager의 싱글톤 패턴을 Player에게 옮기는 것도 괜찮을 것 같다.
-
         단, 이때 Player는 DontDestroy 해줄 필요가 없을테니 유의해야한다.
+
+        하지만, 위에서 말한대로 더 확장성을 고려한다면 지금처럼 CharacterManager를 싱글톤으로 두고
+        나중에 추가될 새로운 캐릭터 관련 기능들의 여백을 남겨두어도 좋을 것 같다.
+
+        1. 사용 편의성 및 메모리 최적화 -> Player에 싱글톤 적용
+        2. 추후 확장성을 고려 -> CharacterManager에 싱글톤 유지
     */
     // Player : 
     /*
