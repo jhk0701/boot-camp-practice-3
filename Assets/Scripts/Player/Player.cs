@@ -23,11 +23,14 @@ public class Player : MonoBehaviour
     }
 
     [HideInInspector] public PlayerInputController inputController;
+    [HideInInspector] public PlayerStatus status;
     [HideInInspector] public Rigidbody rigidBody;
 
     void Awake()
     {
         inputController = GetComponent<PlayerInputController>();
+        status = GetComponent<PlayerStatus>();
+
         rigidBody = GetComponent<Rigidbody>();
     }
 
