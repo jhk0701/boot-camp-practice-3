@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CampFire : MonoBehaviour
+public class DamagingObstacle : MonoBehaviour
 {
     [SerializeField] float damage = 5f;
     [SerializeField] float frequency = 1f;
@@ -39,5 +39,4 @@ public class CampFire : MonoBehaviour
             damagables.Remove(damagable);
         }
     }
-    
 }
