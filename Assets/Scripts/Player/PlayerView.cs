@@ -15,8 +15,9 @@ public class PlayerView : MonoBehaviour
     {
         PlayerInputController inputController = CharacterManager.Instance.Player.inputController;
         inputController.OnLookEvent += OnLook;
-        inputController.OnToggleSettingEvent += Toggle;
-        inputController.OnToggleInventoryEvent += Toggle;
+        inputController.OnMouseLock += Toggle;
+        // inputController.OnToggleSettingEvent += Toggle;
+        // inputController.OnToggleInventoryEvent += Toggle;
 
         camRotateX = cameraAxis.localEulerAngles.x;
 
@@ -49,9 +50,9 @@ public class PlayerView : MonoBehaviour
         cameraAxis.localEulerAngles = new Vector3(camRotateX, 0f, 0f);
     }   
 
-    void Toggle()
+    void Toggle(bool isLocked)
     {
-        cursorIsLocked = !cursorIsLocked;
+        cursorIsLocked = !isLocked;
 
         if (cursorIsLocked)
             Cursor.lockState = CursorLockMode.Locked;

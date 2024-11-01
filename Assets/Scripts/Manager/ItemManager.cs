@@ -8,12 +8,11 @@ public class ItemManager : Singleton<ItemManager>
 
     public Dictionary<int, GameObject> itemMap = new Dictionary<int, GameObject>();
 
-
     void Start()
     {
         for (int i = 0; i < items.Length; i++)
         {
-            itemMap.Add(items[i].id, itemPrefabs[i]);
+            itemMap.Add(items[i].id, itemPrefabs[items[i].id]);
         }
     }
 }
