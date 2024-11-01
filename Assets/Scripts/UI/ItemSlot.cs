@@ -19,10 +19,10 @@ public class ItemSlot : MonoBehaviour
     public event Action<int> OnSelectItem;
 
 
-    void Start()
-    {
-        Clear();
-    }
+    // void Start()
+    // {
+    //     Clear();
+    // }
 
 
     public void Set()
@@ -32,8 +32,7 @@ public class ItemSlot : MonoBehaviour
             Clear();
             return;
         }
-
-        Debug.Log("Set slot");
+        
         icon.sprite = data.icon;
         textCount.text = quantity.ToString();
     }

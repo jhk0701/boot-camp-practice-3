@@ -21,7 +21,6 @@ public class UIInventory : MonoBehaviour
     int selectedItemIndex;
     ItemData selectedItem;
     int curEquipIndex;
-    
 
     
     PlayerStatus status;
@@ -33,19 +32,22 @@ public class UIInventory : MonoBehaviour
 
         CharacterManager.Instance.Player.inputController.OnToggleInventoryEvent += Toggle;
         CharacterManager.Instance.Player.AddItem += AddItem;
+    }
 
-
+    public void Initialize()
+    {
         slots = new ItemSlot[slotContainer.childCount];
         for (int i = 0; i < slotContainer.childCount; i++)
         {
             slots[i] = slotContainer.GetChild(i).GetComponent<ItemSlot>();
             slots[i].index = i;
             slots[i].OnSelectItem += SelectItem;
+            slots[i].Set();
         }
 
         ClearInfo();
 
-        if(panel.activeInHierarchy)
+        if (panel.activeInHierarchy)
             Toggle();
     }
     
@@ -56,7 +58,6 @@ public class UIInventory : MonoBehaviour
 
     void ClearInfo()
     {
-        Debug.Log("Clear");
         selectedItemName.text = string.Empty;
         selectedItemDescription.text = string.Empty;
         selectedItemStatName.text = string.Empty;
@@ -136,7 +137,7 @@ public class UIInventory : MonoBehaviour
     {
         Transform player = CharacterManager.Instance.Player.transform;
         Vector3 position = player.position + Vector3.up + player.forward * 0.5f;
-        Instantiate(data.dropPrefab, position, Quaternion.Euler(Vector3.one * Random.value * 360f));
+        Instantiate(ItemManager.Instance.itemMap[data.id], position, Quaternion.Euler(Vector3.one * Random.value * 360f));
     }
 
     void SelectItem(int index)

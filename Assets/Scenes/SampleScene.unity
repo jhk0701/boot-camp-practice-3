@@ -813,6 +813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 679264351}
   - component: {fileID: 679264352}
+  - component: {fileID: 679264353}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -847,6 +848,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd302a94e2f90544d85709051b797601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &679264353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679264350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8fa849ab45c6d41b23bd97b421544e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: fd300f4864bd49643ace591132cff53d, type: 2}
+  itemPrefabs:
+  - {fileID: 9205139826289074602, guid: 74dcdf25ec9862448bc2baa6dc7138a7, type: 3}
 --- !u!1 &685763239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,8 +1776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c4e6a5b3ef1cd42894ecf186cdf955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uIInventoryPrefab: {fileID: 8021378338488766762, guid: af8fa953ca57cac4e97c76728a9dc98a, type: 3}
-  uIInventory: {fileID: 0}
+  uiInventoryPrefab: {fileID: 8021378338488766762, guid: af8fa953ca57cac4e97c76728a9dc98a, type: 3}
+  uiInventory: {fileID: 0}
 --- !u!1 &1682980973
 GameObject:
   m_ObjectHideFlags: 0

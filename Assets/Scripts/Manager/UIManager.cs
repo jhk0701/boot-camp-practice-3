@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField] UIInventory uIInventoryPrefab;
-    public UIInventory uIInventory;
+    [SerializeField] UIInventory uiInventoryPrefab;
+    public UIInventory uiInventory;
 
     void Awake()
     {
-        uIInventory = Instantiate(uIInventoryPrefab, transform);    
+        uiInventory = Instantiate(uiInventoryPrefab, transform);
+        uiInventory.Initialize();
     }
 }

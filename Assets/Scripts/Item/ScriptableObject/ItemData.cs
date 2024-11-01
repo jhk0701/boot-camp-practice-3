@@ -25,6 +25,7 @@ public class ItemDataConsumable
 [CreateAssetMenu(fileName = "ItemData",menuName = "boot-camp-practice-3/ItemData")]
 public class ItemData : ScriptableObject
 {
+    public int id;
     public string title;
     public string description;
     public ItemType type;
