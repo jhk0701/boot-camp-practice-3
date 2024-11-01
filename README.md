@@ -39,7 +39,7 @@
 > * 성능 측면에서 Send Messages보다 **더 저렴하다.**
 > * **등록된 컴포넌트의 메서드만 호출**하므로 비용이 상당히 절감된다.
 > ----
-> +. 각 방식별 성능 비교
+> +. 각 방식별 성능 비교 (오른쪽이 가장 성능이 좋다는 의미)
 >> Broadcast Message < Send Message < Invoke Unity Event <= Invoke C# Event
 
 ### 2. CharacterManager와 Player의 역할
