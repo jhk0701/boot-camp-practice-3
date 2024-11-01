@@ -9,7 +9,7 @@ public class UISettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player.Instance.inputController.OnOpenSettingEvent += Toggle;
+        CharacterManager.Instance.Player.inputController.OnToggleSettingEvent += Toggle;
     }
 
     public void Toggle()

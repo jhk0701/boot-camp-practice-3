@@ -8,13 +8,15 @@ public class PlayerView : MonoBehaviour
     [SerializeField] Vector2 clampForFirstPerson;
     float camRotateX = 0f;
 
-    bool cursorIsLocked = false;
+    public bool cursorIsLocked = false;
 
 
     void Start()
     {
-        Player.Instance.inputController.OnLookEvent += OnLook;
-        Player.Instance.inputController.OnOpenSettingEvent += Toggle;
+        PlayerInputController inputController = CharacterManager.Instance.Player.inputController;
+        inputController.OnLookEvent += OnLook;
+        inputController.OnToggleSettingEvent += Toggle;
+        inputController.OnToggleInventoryEvent += Toggle;
 
         camRotateX = cameraAxis.localEulerAngles.x;
 
@@ -26,6 +28,17 @@ public class PlayerView : MonoBehaviour
     {
         if(!cursorIsLocked) return;
 
+        Look();
+    }
+
+
+    void OnLook(Vector2 mouseDelta)
+    {
+        direction = mouseDelta;
+    }
+
+    void Look()
+    {
         float speed = rotateSensitive * Time.deltaTime;
 
         transform.Rotate(Vector3.up * direction.x * speed);
@@ -34,13 +47,7 @@ public class PlayerView : MonoBehaviour
         camRotateX = Mathf.Clamp(camRotateX, clampForFirstPerson.x, clampForFirstPerson.y);
 
         cameraAxis.localEulerAngles = new Vector3(camRotateX, 0f, 0f);
-    }
-
-
-    void OnLook(Vector2 mouseDelta)
-    {
-        direction = mouseDelta;
-    }
+    }   
 
     void Toggle()
     {

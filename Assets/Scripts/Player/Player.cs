@@ -1,35 +1,26 @@
-
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private static Player instance;
-    public static Player Instance
-    { 
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<Player>();
-
-                if (instance == null)
-                {
-                    instance = new GameObject("Player").AddComponent<Player>();
-                }
-            }
-
-            return instance;
-        }
-    }
-
+    
     [HideInInspector] public PlayerInputController inputController;
     [HideInInspector] public PlayerStatus status;
+    [HideInInspector] public PlayerInteraction interaction;
     [HideInInspector] public Rigidbody rigidBody;
+    [HideInInspector] public Equipment equip;
+
+
+    public Action<ItemData> AddItem;
+    
 
     void Awake()
     {
+        CharacterManager.Instance.Player = this;
+
         inputController = GetComponent<PlayerInputController>();
         status = GetComponent<PlayerStatus>();
+        interaction = GetComponent<PlayerInteraction>();
 
         rigidBody = GetComponent<Rigidbody>();
     }

@@ -13,7 +13,7 @@ public class DamageIndicator : MonoBehaviour
 
     void Start()
     {
-        Player.Instance.status.OnPlayerDamaged += Blink;
+        CharacterManager.Instance.Player.status.OnPlayerDamaged += Blink;
 
         image = GetComponent<Image>();
 
