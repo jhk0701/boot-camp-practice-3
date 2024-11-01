@@ -9,12 +9,8 @@ public class PlayerInputController : MonoBehaviour
     public event Action<Vector2> OnLookEvent;
     public event Action OnMagicEvent;
     public event Action OnInteractEvent;
-
-    bool inventoryOpened = false;
-    bool settingOpened = false;
     public event Action OnToggleInventoryEvent;
     public event Action OnToggleSettingEvent;
-    public event Action<bool> OnMouseLock;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -55,10 +51,7 @@ public class PlayerInputController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            settingOpened = !settingOpened;
             OnToggleSettingEvent?.Invoke();
-
-            OnMouseLock?.Invoke(settingOpened || inventoryOpened);
         }
     }
     
@@ -66,10 +59,7 @@ public class PlayerInputController : MonoBehaviour
     {
         if(context.started)
         {
-            inventoryOpened = !inventoryOpened;
             OnToggleInventoryEvent?.Invoke();
-
-            OnMouseLock?.Invoke(settingOpened || inventoryOpened);
         }
     }
 }

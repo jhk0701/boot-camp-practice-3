@@ -15,7 +15,7 @@ public class PlayerView : MonoBehaviour
     {
         PlayerInputController inputController = CharacterManager.Instance.Player.inputController;
         inputController.OnLookEvent += OnLook;
-        inputController.OnMouseLock += Toggle;
+        UIManager.Instance.OnMouseLock += Toggle;
         // inputController.OnToggleSettingEvent += Toggle;
         // inputController.OnToggleInventoryEvent += Toggle;
 
